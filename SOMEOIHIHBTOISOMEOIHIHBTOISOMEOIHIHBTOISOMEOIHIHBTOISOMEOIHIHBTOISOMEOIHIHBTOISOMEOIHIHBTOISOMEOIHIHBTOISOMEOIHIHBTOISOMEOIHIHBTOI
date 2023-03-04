@@ -1,0 +1,1042 @@
+
+if _G.LoadScreen == false then
+wait(0)
+end
+
+if _G.LoadScreen == true then
+   
+        local Slamwareloader = Instance.new("ScreenGui")
+        local BackFrame = Instance.new("Frame")
+        local UICorner = Instance.new("UICorner")
+        local TopFrame = Instance.new("Frame")
+        local UICorner_2 = Instance.new("UICorner")
+        local UIGradient = Instance.new("UIGradient")
+        local TextLabel = Instance.new("TextLabel")
+        local UIGradient_2 = Instance.new("UIGradient")
+        local LoadingText = Instance.new("TextLabel")
+        local LoadingFrame = Instance.new("Frame")
+        local UICorner_3 = Instance.new("UICorner")
+        local UIGradient_3 = Instance.new("UIGradient")
+        local Loading = Instance.new("Frame")
+        local UICorner_4 = Instance.new("UICorner")
+        local UIGradient_4 = Instance.new("UIGradient")
+        local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+        
+        Slamwareloader.Name = "Slamwareloader"
+        Slamwareloader.Parent = game.CoreGui
+        Slamwareloader.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        
+        BackFrame.Name = "BackFrame"
+        BackFrame.Parent = Slamwareloader
+        BackFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+        BackFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        BackFrame.Position = UDim2.new(0.493000001, 0, 1.07000005, 0)
+        BackFrame.Size = UDim2.new(0, 361, 0, 101)
+        
+        UICorner.CornerRadius = UDim.new(0, 12)
+        UICorner.Parent = BackFrame
+        
+        TopFrame.Name = "TopFrame"
+        TopFrame.Parent = BackFrame
+        TopFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TopFrame.Size = UDim2.new(0, 361, 0, 29)
+        
+        UICorner_2.CornerRadius = UDim.new(0, 12)
+        UICorner_2.Parent = TopFrame
+        
+        UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(214,161,195)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(85, 0, 182))}
+        UIGradient.Rotation = 90
+        UIGradient.Parent = TopFrame
+        
+        TextLabel.Parent = TopFrame
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BackgroundTransparency = 1.000
+        TextLabel.Position = UDim2.new(0.387811601, 0, -0.0344827585, 0)
+        TextLabel.Size = UDim2.new(0, 87, 0, 29)
+        TextLabel.Font = Enum.Font.Code
+        TextLabel.Text = "SlamWare"
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.TextScaled = true
+        TextLabel.TextSize = 14.000
+        TextLabel.TextWrapped = true
+        
+        UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(76, 0, 182)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(37, 0, 81))}
+        UIGradient_2.Offset = Vector2.new(0.5, 0)
+        UIGradient_2.Rotation = 90
+        UIGradient_2.Parent = BackFrame
+        
+        LoadingText.Name = "LoadingText"
+        LoadingText.Parent = BackFrame
+        LoadingText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        LoadingText.BackgroundTransparency = 1.000
+        LoadingText.Position = UDim2.new(0.0775623247, 0, 0.286810249, 0)
+        LoadingText.Size = UDim2.new(0, 312, 0, 25)
+        LoadingText.Font = Enum.Font.Code
+        LoadingText.Text = "welcome"
+        LoadingText.TextColor3 = Color3.fromRGB(163, 163, 163)
+        LoadingText.TextScaled = true
+        LoadingText.TextSize = 14.000
+        LoadingText.TextWrapped = true
+        
+        LoadingFrame.Name = "LoadingFrame"
+        LoadingFrame.Parent = BackFrame
+        LoadingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        LoadingFrame.Position = UDim2.new(0.0526315793, 0, 0.605504572, 0)
+        LoadingFrame.Size = UDim2.new(0, 321, 0, 26)
+        
+        UICorner_3.CornerRadius = UDim.new(0, 12)
+        UICorner_3.Parent = LoadingFrame
+        
+        UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(106, 106, 106)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(61, 61, 61))}
+        UIGradient_3.Rotation = 90
+        UIGradient_3.Parent = LoadingFrame
+        
+        Loading.Name = "Loading"
+        Loading.Parent = LoadingFrame
+        Loading.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Loading.Position = UDim2.new(0, 0, -0.00988065265, 0)
+        Loading.Size = UDim2.new(0.0280373823, 0, 1.00988066, 0)
+        
+        UICorner_4.CornerRadius = UDim.new(0, 12)
+        UICorner_4.Parent = Loading
+        
+        UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(92, 0, 220)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 0, 115))}
+        UIGradient_4.Rotation = 90
+        UIGradient_4.Parent = Loading
+        
+        UIAspectRatioConstraint.Parent = BackFrame
+        UIAspectRatioConstraint.AspectRatio = 3.574
+        
+        
+        local function TFOQWM_fake_script()
+            local script = Instance.new('LocalScript', Loading)
+        
+            local LoadingTxt = script.Parent.Parent
+            local goingDownxd = script.Parent.Parent.Parent.Parent.BackFrame
+                local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+            wait(2)
+            script.Parent:TweenSize(UDim2.new(0, 88,0, 26))
+            script.Parent.Parent.Parent.LoadingText.Text = "setting up"
+           
+                local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+            wait(1)
+        
+        
+            script.Parent:TweenSize(UDim2.new(0, 165,0, 26))
+            script.Parent.Parent.Parent.LoadingText.Text = "bypassing anticheat"
+            assert(getrawmetatable)
+            grm = getrawmetatable(game)
+            setreadonly(grm, false)
+            old = grm.__namecall
+            grm.__namecall = newcclosure(function(self, ...)
+                local args = {...}
+                if tostring(args[1]) == "TeleportDetect" then
+                    return
+                elseif tostring(args[1]) == "CHECKER_1" then
+                    return
+                elseif tostring(args[1]) == "CHECKER" then
+                    return
+                elseif tostring(args[1]) == "GUI_CHECK" then
+                    return
+                elseif tostring(args[1]) == "OneMoreTime" then
+                    return
+                elseif tostring(args[1]) == "checkingSPEED" then
+                    return
+                elseif tostring(args[1]) == "BANREMOTE" then
+                    return
+                elseif tostring(args[1]) == "PERMAIDBAN" then
+                    return
+                elseif tostring(args[1]) == "KICKREMOTE" then
+                    return
+                elseif tostring(args[1]) == "BR_KICKPC" then
+                    return
+                elseif tostring(args[1]) == "BR_KICKMOBILE" then
+                    return
+                end
+                return old(self, ...)
+            end)
+          
+            local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        
+            wait(1.2)
+            script.Parent:TweenSize(UDim2.new(0, 232,0, 26))
+            script.Parent.Parent.Parent.LoadingText.Text = "checking if whitelisted.."
+          
+            local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        
+            wait(1.5)
+            script.Parent:TweenSize(UDim2.new(1,0,1,0))
+            script.Parent.Parent.Parent.LoadingText.Text = "executing ui"
+          
+                local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+            wait(2)
+            goingDownxd:TweenPosition(UDim2.new(0.493, 0,1.07, 0))
+            wait(1)
+            script.Parent.Parent.Parent.Parent.Parent.Slamwareloader:Destroy()
+        end
+        coroutine.wrap(TFOQWM_fake_script)()
+        local function DDIVBK_fake_script()
+            local script = Instance.new('LocalScript', BackFrame)
+        
+            script.Parent:TweenPosition(UDim2.new(0.5, 0,0.499, 0))
+        end
+        coroutine.wrap(DDIVBK_fake_script)()
+        wait(7.5)
+end
+
+    local m_thread = task do setreadonly(m_thread, false) 
+
+        function m_thread.spawn_loop(p_time, p_callback) m_thread.spawn(function()
+        
+        while true do p_callback() m_thread.wait(p_time) end end) end setreadonly(m_thread, true) end 
+        
+        local library, pointers = loadstring(game:HttpGet("https://raw.githubusercontent.com/wqfgq/ui-lib/main/nigus"))() do
+        --game.Players.LocalPlayer.Name - if uw ant
+        local window = library:New({name = "SlamWare".." - "..game.Players.LocalPlayer.DisplayName.." - " .. "("..game.Players.LocalPlayer.UserId..")",size = Vector2.new(500, 560),Accent = Color3.fromRGB(135, 206, 250)}) --size = Vector2.new(555, 610) , 625.1,610 --66,44,144  ,100, 61, 200           117,96,175     255,135,255
+            
+        local legitbot = window:Page({name = "Legit", size = 72}) 
+     
+    local dd = legitbot:Section({name = "Section", side = "left"})
+
+    local legitbot_main = legitbot:Section({name = "Section 2", side = "right"})
+
+local vibilenigger = dd:Textbox({
+
+    Name = "TextBox",
+    Default = "jh",
+    Flag = "textboxx",
+   text = "0.133",
+middle = true,
+    Callback = function(v)
+        
+    end
+
+
+})
+
+ 
+local vibilenigger = dd:Toggle({
+
+    Name = "Toggle",
+    Default = false,
+    Flag = "toggle",
+    Callback = function(v)
+       
+    end
+
+
+})
+
+
+
+local vibilenigger = dd:Button({
+
+    Name = "Button",
+    Default = false,
+    Flag = "",
+    Callback = function(v)
+       
+    end
+
+
+})
+
+            dd:Colorpicker(
+                {
+                    pointer = "themes/menu/accent",
+                    name = "Color Picker",
+                    default = Color3.fromRGB(100, 61, 200),
+                    callback = function(p_state)
+                   
+                    end
+                }
+            )
+
+    dd:Slider({name = "Slider", min = 0, max = 2.5, Default = 0.0, Decimals = 0.01, suffix = "%", Callback = function(value)
+                               
+                                end})
+
+
+    dd:Keybind({name = "Keybind", mode = "Always", Default_Keybind = 'C', pointer ="legitbot_mainkeybind", callback = function(value)
+                             
+                                end})
+    
+     dd:Dropdown({
+                    Name = "Dropdown",
+                    Options = {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso"},
+                    Default = "HumanoidRootPart",
+                    Pointer = "themes/xd/",
+                   
+                    callback = function(callback)
+
+                    end
+                }
+            )
+
+
+        local settings_page = window:Page({name = "Config", side = "Right", size = 73.2}) do
+        local config_section = settings_page:Section({name = "Configuration", side = "Right"}) do
+                local current_list = {}
+                local function update_config_list()
+                    local list = {}
+                    for idx, file in ipairs(listfiles("SlamWare/configs")) do
+                        local file_name = file:gsub("SlamWare/configs\\",""):gsub(".txt","") list[#list + 1] = file_name end
+                    local is_new = #list ~= #current_list
+                    if not is_new then
+                        for idx, file in ipairs(list) do
+                            if file ~= current_list[idx] then is_new = true break end end end
+                    if is_new then current_list = list pointers["settings/configuration/list"]:UpdateList(list, false, true) end end
+                config_section:Listbox({pointer = "settings/configuration/list"})
+                config_section:Textbox({
+                        pointer = "settings/configuration/name",
+                        placeholder = "Config Name",
+                        text = "",
+                        middle = true,
+                        reset_on_focus = false})
+                config_section:ButtonHolder({Buttons = {{"Create",  function()local config_name = pointers["settings/configuration/name"]:get()
+                    if config_name == "" or isfile("SlamWare/configs/" .. config_name .. ".txt") then return end writefile("SlamWare/configs/" .. config_name .. ".txt","") update_config_list() end}, {"Delete", function()
+                    local selected_config = pointers["settings/configuration/list"]:get()[1][1]
+                    if selected_config then
+                        delfile("SlamWare/configs/" .. selected_config .. ".txt")
+                        update_config_list()
+                    end
+                    end}}})
+                config_section:ButtonHolder({Buttons = {{"Load", function()
+                    local selected_config = pointers["settings/configuration/list"]:get()[1][1]
+                    if selected_config then
+                        window:LoadConfig(readfile("SlamWare/configs/" .. selected_config .. ".txt"))
+                    end
+                end}, {"Save", function()
+                    local selected_config = pointers["settings/configuration/list"]:get()[1][1]
+                    if selected_config then
+                        writefile("SlamWare/configs/" .. selected_config .. ".txt", window:GetConfig())
+                    end
+                end}}}) m_thread.spawn_loop(3, update_config_list) end
+    
+        local menu_section = settings_page:Section({name = "Menu"}) do
+            local function gs(a)
+                return game:GetService(a)
+            end
+            local actionservice = gs("ContextActionService")
+            menu_section:Keybind({
+                    pointer = "settings/menu/bind",
+                    name = "Bind",
+                    default = Enum.KeyCode.V,
+                    callback = function(p_state)
+                        window.uibind = p_state
+                    end
+                }
+            )
+            menu_section:Toggle(
+                {
+                    pointer = "sabcd_aa",
+                    name = "Cursor",
+                    default = true,
+                    callback = function(p_state)
+                        local userInputService = game:GetService("UserInputService")
+                        if p_state == true then
+                            userInputService.MouseIconEnabled = true
+                        else
+                            userInputService.MouseIconEnabled = false
+                        end
+                    end})
+    
+            menu_section:Toggle({
+                    pointer = "settings/menu/watermark",
+                    name = "Watermark",
+                    default = false,
+                    callback = function(p_state)
+                        window.watermark:Update("Visible", p_state)
+                    end})
+            menu_section:Toggle(
+                {
+                    pointer = "settings/menu/keybind_list",
+                    name = "Keybind List",
+                    callback = function(p_state)
+                        window.keybindslist:Update("Visible", p_state)
+                    end
+                }
+            )
+    
+            menu_section:Toggle(
+                {
+                    pointer = "freezemovement",
+                    name = "Disable Movement if UI Open",
+                    callback = function(bool)
+                        if bool and window.isVisible then
+                            actionservice:BindAction(
+                                "FreezeMovement",
+                                function()
+                                    return Enum.ContextActionResult.Sink
+                                end,
+                                false,
+                                unpack(Enum.PlayerActions:GetEnumItems())
+                            )
+                        else
+                            actionservice:UnbindAction("FreezeMovement")
+                        end
+                    end
+                }
+            )
+    
+    
+            menu_section:Button(
+                {
+                    name = "Unload",
+                    confirmation = true,
+                    callback = function()
+                        window:Unload()
+                    end
+                }
+            )
+    
+            menu_section:Button(
+                {
+                    name = "Force Close",
+                    confirmation = true,
+                    callback = function()
+                        window:Fade()
+                    end
+                }
+            )
+    
+        end
+    
+        local other_section = settings_page:Section({name = "Other", side = "Right"})
+        do
+            other_section:Button(
+                {
+                    name = "Copy JobId",
+                    callback = function()
+                        setclipboard(game.JobId)
+                    end
+                }
+            )
+            other_section:Button(
+                {
+                    name = "Copy GameID",
+                    callback = function()
+                        setclipboard(game.GameId)
+                    end
+                }
+            )
+            other_section:Button(
+                {
+                    name = "Copy Game Invite",
+                    callback = function()
+                        setclipboard(
+                            "Roblox.GameLauncher.joinGameInstance(" .. game.PlaceId .. ',"' .. game.JobId .. '")')
+                    end})
+            other_section:Button({
+                    name = "Rejoin",
+                    confirmation = true,
+                    callback = function()
+                        m_game:teleport(game.PlaceId, game.JobId)
+                    end
+                }
+            )
+        end
+    local load_section = settings_page:Section({name = "Load Menu", side = "Right"})  
+    load_section:Toggle({name = "Show Menu"})
+    load_section:Toggle({name = "Auto Load Config"})
+    
+        local themes_section = settings_page:Section({name = "Themes", side = "Left"}) do
+
+    
+    
+    
+    
+            
+            themes_section:Dropdown({
+                    Name = "Theme",
+                    Options = {"Default", "Tyrisware", "Abyss", "Spotify", "Tyrisware v2", "Solix", "nomercy.rip", "Abyss V2", "Anorix", "Octel", "LegitSneeze", "AimWare", "x15","Gamesense", "Kitten Bot", "BitchBot", "BubbleGum", "Slime"},
+                    Default = "Default",
+                    Pointer = "themes/xd/",
+                    callback = function(callback)
+                        if callback == "Default" then
+                           library:UpdateColor("Accent", Color3.fromRGB(214, 161, 195))
+                        library:UpdateColor("lightcontrast", Color3.fromRGB(18, 18, 18))
+                        library:UpdateColor("darkcontrast", Color3.fromRGB(11, 11, 11))
+                        library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                        library:UpdateColor("inline", Color3.fromRGB(16, 16, 16))
+                        
+                        elseif callback == "Spotify" then
+                            library:UpdateColor("Accent", Color3.fromRGB(103, 212, 91))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(30, 30, 30))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(25, 25, 25))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(46, 46, 46))
+                        
+                        elseif callback == "AimWare" then
+                            library:UpdateColor("Accent", Color3.fromRGB(250, 47, 47))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(41, 40, 40))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(38, 38, 38))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(46, 46, 46))
+                       
+                        elseif callback == "nomercy.rip" then
+                            library:UpdateColor("Accent", Color3.fromRGB(242, 150, 92))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(22, 12, 46))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(17, 8, 31))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(46, 46, 46))
+                       
+                        elseif callback == "Abyss" then
+                            library:UpdateColor("Accent", Color3.fromRGB(81, 72, 115))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(41, 41, 41))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(31, 30, 30))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(50, 50, 50))
+                            
+                            elseif callback == "Abyss V2" then
+                            library:UpdateColor("Accent", Color3.fromRGB(161, 144, 219))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(27, 27, 27))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(18, 18, 18))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(50, 50, 50))
+                            
+                            elseif callback == "Gamesense" then
+                            library:UpdateColor("Accent", Color3.fromRGB(163, 248, 105))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(25, 25, 25))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(16, 16, 16))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(50, 50, 50))
+                       
+                        elseif callback == "Kitten Bot" then
+                            library:UpdateColor("Accent", Color3.fromRGB(100, 61, 200))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(30, 30, 30))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(25, 25, 25))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(50, 50, 50))
+                        
+                        elseif callback == "Ubuntu" then
+                            library:UpdateColor("Accent", Color3.fromRGB(226, 88, 30))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(62,62,62))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(50, 50, 50))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(50, 50, 50))
+                        
+                        elseif callback == "BitchBot" then
+                            library:UpdateColor("Accent", Color3.fromRGB(126,72,163))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(62,62,62))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(50, 50, 50))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(50, 50, 50))
+                            
+                        elseif callback == "Anorix" then
+                            library:UpdateColor("Accent", Color3.fromRGB(105,156,164))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(51,51,51))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(41,41,41))
+                            library:UpdateColor("outline", Color3.fromRGB(37, 37, 37))
+                            library:UpdateColor("inline", Color3.fromRGB(39, 39, 39))
+                            
+                            
+                             elseif callback == "Tyrisware v2" then
+                            library:UpdateColor("Accent", Color3.fromRGB(0,253,255))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(51,51,51))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(41,41,41))
+                            library:UpdateColor("outline", Color3.fromRGB(37, 37, 37))
+                            library:UpdateColor("inline", Color3.fromRGB(39, 39, 39))
+                            
+                            
+                            
+                            
+                        elseif callback == "BubbleGum" then
+                            library:UpdateColor("Accent", Color3.fromRGB(169, 83, 245))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(22, 12, 46))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(17, 8, 31))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(46, 46, 46))
+                        
+                        elseif callback == "Slime" then
+                            library:UpdateColor("Accent", Color3.fromRGB(64, 247, 141))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(22, 12, 46))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(17, 8, 31))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(46, 46, 46))
+                        
+                        elseif callback == "Octel" then
+                            library:UpdateColor("Accent", Color3.fromRGB(255, 201, 254))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(32, 32, 32))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(25, 25, 25))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(30, 28, 30))
+         
+                        elseif callback == "LegitSneeze" then
+                            library:UpdateColor("Accent", Color3.fromRGB(135,206,250))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(43,41,48))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(44,41,48))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(50,50,50))
+         
+                        elseif callback == "x15" then
+                            library:UpdateColor("Accent", Color3.fromRGB(92,57,152))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(32, 32, 32))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(25, 25, 25))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(30, 28, 30))
+         
+                        elseif callback == "Tyrisware" then
+                            library:UpdateColor("Accent", Color3.fromRGB(59,84,154))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(32, 33, 32))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(25, 26, 25))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(30, 31, 30))
+         
+                        elseif callback == "Solix" then
+                            library:UpdateColor("Accent", Color3.fromRGB(120, 93, 166))
+                            library:UpdateColor("lightcontrast", Color3.fromRGB(33,33,33))
+                            library:UpdateColor("darkcontrast", Color3.fromRGB(24,24,24))
+                            library:UpdateColor("outline", Color3.fromRGB(0, 0, 0))
+                            library:UpdateColor("inline", Color3.fromRGB(30, 29, 30)) end end})
+            themes_section:Dropdown({
+                    Name = "Accent Effects",
+                    Options = {"Rainbow", "Fade", "Disguard Fade", "Disguard Rainbow", "None"},
+                    Default = "None",
+                    Pointer = "themes/xd/",
+                    callback = function(callback)
+                        if callback == "Rainbow" then
+                            if callback then
+    
+                                ching = game:GetService("RunService").Heartbeat:Connect(function()chings:Disconnect()
+                                            library:UpdateColor("Accent", Color3.fromHSV(tick() % 5 / 5, 1, 1))
+                                        end)
+                            else
+                                if ching then
+                                    ching:Disconnect()
+                                end
+                            end
+    
+                        elseif callback == "Disguard Rainbow" then
+                            ching:Disconnect()
+    
+    
+                        elseif callback == "Disguard Fade" then
+    
+                            chings:Disconnect()
+    
+                        elseif callback == "Fade" then
+                            if callback then
+    
+                                chings =
+                                    game:GetService("RunService").Heartbeat:Connect(
+                                        function()
+                                            ching:Disconnect()
+                                            local r = (math.sin(workspace.DistributedGameTime/2)/2)+0.5
+                                            local g = (math.sin(workspace.DistributedGameTime)/2)+0.5
+                                            local b = (math.sin(workspace.DistributedGameTime*1.5)/2)+0.5
+                                            local color = Color3.new(r, g, b)
+                                            library:UpdateColor("Accent", color)
+                                        end
+                                    )
+                            else
+                                if chings then
+                                    chings:Disconnect()
+                                end
+                            end
+    
+                        end
+                    end
+                }
+            )
+
+    
+            themes_section:Colorpicker(
+                {
+                    pointer = "themes/menu/accent",
+                    name = "Accent",
+                    default = Color3.fromRGB(100, 61, 200),
+                    callback = function(p_state)
+                        library:UpdateColor("Accent", p_state)
+                    end
+                }
+            )
+            themes_section:Colorpicker(
+                {
+                    pointer = "settings/menu/accent",
+                    name = "Light Contrast",
+                    default = Color3.fromRGB(30, 30, 30),
+                    callback = function(p_state)
+                        library:UpdateColor("lightcontrast", p_state)
+                    end
+                }
+            )
+            themes_section:Colorpicker(
+                {
+                    pointer = "settings/menu/accent",
+                    name = "Dark Constrast",
+                    default = Color3.fromRGB(25, 25, 25),
+                    callback = function(p_state)
+                        library:UpdateColor("darkcontrast", p_state)
+                    end
+                }
+            )
+            themes_section:Colorpicker(
+                {
+                    pointer = "settings/menu/accent",
+                    name = "Outline",
+                    default = Color3.fromRGB(0, 0, 0),
+                    callback = function(p_state)
+                        library:UpdateColor("outline", p_state)
+                    end
+                }
+            )
+            themes_section:Colorpicker(
+                {
+                    pointer = "settings/menu/accent",
+                    name = "Inline",
+                    default = Color3.fromRGB(50, 50, 50),
+                    callback = function(p_state)
+                        library:UpdateColor("inline", p_state)
+                    end
+                }
+            )
+            themes_section:Colorpicker(
+                {
+                    pointer = "settings/menu/accent",
+                    name = "Text Color",
+                    default = Color3.fromRGB(255, 255, 255),
+                    callback = function(p_state)
+                        library:UpdateColor("textcolor", p_state)
+                    end
+                }
+            )
+            
+        
+            
+            
+            
+            themes_section:Colorpicker(
+                {
+                    pointer = "settings/menu/accent",
+                    name = "Text Border",
+                    default = Color3.fromRGB(0, 0, 0),
+                    callback = function(p_state)
+                        library:UpdateColor("textborder", p_state)
+                    end})
+            themes_section:Colorpicker({
+                    pointer = "settings/menu/accent",
+                    name = "Cursor Outline",
+                    default = Color3.fromRGB(255, 255, 255),
+                    callback = function(p_state)
+                        library:UpdateColor("cursoroutline", p_state)
+                    end})end end window.uibind = Enum.KeyCode.V window:Initialize() end
+
+
+
+                    
