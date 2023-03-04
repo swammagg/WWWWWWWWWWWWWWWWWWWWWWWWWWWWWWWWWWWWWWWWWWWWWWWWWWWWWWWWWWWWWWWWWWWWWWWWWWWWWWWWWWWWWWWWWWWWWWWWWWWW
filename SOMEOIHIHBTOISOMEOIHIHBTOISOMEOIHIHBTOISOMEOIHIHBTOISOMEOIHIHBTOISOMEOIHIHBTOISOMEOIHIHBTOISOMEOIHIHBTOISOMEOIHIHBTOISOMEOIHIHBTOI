@@ -765,7 +765,7 @@ local vibilenigger = dd:Button({
             themes_section:Dropdown({
                     Name = "Theme",
                     Options = {"Default", "Tyrisware", "Abyss", "Spotify", "Tyrisware v2", "Solix", "nomercy.rip", "Abyss V2", "Anorix", "Octel", "LegitSneeze", "AimWare", "x15","Gamesense", "Kitten Bot", "BitchBot", "BubbleGum", "Slime"},
-                    Default = "Default",
+                    Default = "Tyrisware",
                     Pointer = "themes/xd/",
                     callback = function(callback)
                         if callback == "Default" then
