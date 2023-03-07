@@ -1,3 +1,231 @@
+getgenv().SlamWare = {
+    SilentAim = {
+        Key = "",
+        Enabled = false,
+        Prediction = 0.119,
+        AimingType = "Default", -- ClosestPart, Default
+        AimPart = "HumanoidRootPart",
+        
+        ChanceData = {UseChance = false, Chance = 100},
+        FOVData = {Radius = 80, Visibility = false, Filled = false},
+
+        AimingData = {CheckKnocked = false, CheckGrabbed = false,
+        CheckWalls = false},
+
+    },
+    Tracing = {
+        Key = 'Q',
+        Enabled = false,
+        Prediction = 8,
+        AimPart = "HumanoidRootPart",
+        TracingOptions = {Strength = "Hard", AimingType = "Default",  Smoothness = 0.11} 
+                            -- Hard, Soft
+    }
+}
+
+local Ordium = {functions = {}}
+
+local Vector2New, Cam, Mouse, client, find, Draw, Inset, players, RunService, UIS=
+    Vector2.new,
+    workspace.CurrentCamera,
+    game.Players.LocalPlayer:GetMouse(),
+    game.Players.LocalPlayer,
+    table.find,
+    Drawing.new,
+    game:GetService("GuiService"):GetGuiInset().Y,
+    game.Players, 
+    game.RunService,
+    game:GetService("UserInputService")
+
+
+local mf, rnew = math.floor, Random.new
+
+local Targetting
+local lockedCamTo
+
+local Circle = Draw("Circle")
+Circle.Thickness = 1
+Circle.Transparency = 0.7
+Circle.Color = Color3.new(1,1,1)
+
+Ordium.functions.update_FOVs = function ()
+    if not (Circle) then
+        return Circle
+    end
+    Circle.Radius =  getgenv().SlamWare.SilentAim.FOVData.Radius * 3
+    Circle.Visible = getgenv().SlamWare.SilentAim.FOVData.Visibility
+    Circle.Filled = getgenv().SlamWare.SilentAim.FOVData.Filled
+    Circle.Position = Vector2New(Mouse.X, Mouse.Y + (Inset))
+    return Circle
+end
+
+Ordium.functions.onKeyPress = function(inputObject)
+    if inputObject.KeyCode == Enum.KeyCode[getgenv().SlamWare.SilentAim.Key:upper()] then
+        getgenv().SlamWare.SilentAim.Enabled = not getgenv().SlamWare.SilentAim.Enabled
+    end
+
+    if inputObject.KeyCode == Enum.KeyCode[getgenv().SlamWare.Tracing.Key:upper()] then
+        getgenv().SlamWare.Tracing.Enabled = not getgenv().SlamWare.Tracing.Enabled
+        if getgenv().SlamWare.Tracing.Enabled then
+            lockedCamTo = Ordium.functions.returnClosestPlayer(getgenv().SlamWare.SilentAim.ChanceData.Chance)
+        end
+    end
+end
+
+UIS.InputBegan:Connect(Ordium.functions.onKeyPress)
+
+
+Ordium.functions.wallCheck = function(direction, ignoreList)
+    if not getgenv().SlamWare.SilentAim.AimingData.CheckWalls then
+        return true
+    end
+
+    local ray = Ray.new(Cam.CFrame.p, direction - Cam.CFrame.p)
+    local part, _, _ = game:GetService("Workspace"):FindPartOnRayWithIgnoreList(ray, ignoreList)
+
+    return not part
+end
+
+Ordium.functions.pointDistance = function(part)
+    local OnScreen = Cam.WorldToScreenPoint(Cam, part.Position)
+    if OnScreen then
+        return (Vector2New(OnScreen.X, OnScreen.Y) - Vector2New(Mouse.X, Mouse.Y)).Magnitude
+    end
+end
+
+Ordium.functions.returnClosestPart = function(Character)
+    local data = {
+        dist = math.huge,
+        part = nil,
+        filteredparts = {},
+        classes = {"Part", "BasePart", "MeshPart"}
+    }
+
+    if not (Character and Character:IsA("Model")) then
+        return data.part
+    end
+    local children = Character:GetChildren()
+    for _, child in pairs(children) do
+        if table.find(data.classes, child.ClassName) then
+            table.insert(data.filteredparts, child)
+            for _, part in pairs(data.filteredparts) do
+                local dist = Ordium.functions.pointDistance(part)
+                if Circle.Radius > dist and dist < data.dist then
+                    data.part = part
+                    data.dist = dist
+                end
+            end
+        end
+    end
+    return data.part
+end
+
+Ordium.functions.returnClosestPlayer = function (amount)
+    local data = {
+        dist = 1/0,
+        player = nil
+    }
+
+    amount = amount or nil
+
+    for _, player in pairs(players:GetPlayers()) do
+        if (player.Character and player ~= client) then
+            local dist = Ordium.functions.pointDistance(player.Character.HumanoidRootPart)
+            if Circle.Radius > dist and dist < data.dist and 
+            Ordium.functions.wallCheck(player.Character.Head.Position,{client, player.Character}) then
+                data.dist = dist
+                data.player = player
+            end
+        end
+    end
+    local calc = mf(rnew().NextNumber(rnew(), 0, 1) * 100) / 100
+    local use = getgenv().SlamWare.SilentAim.ChanceData.UseChance
+    if use and calc <= mf(amount) / 100 then
+        return calc and data.player
+    else
+        return data.player
+    end
+end
+
+Ordium.functions.setAimingType = function (player, type)
+    local previousSilentAimPart = getgenv().SlamWare.SilentAim.AimPart
+    local previousTracingPart = getgenv().SlamWare.Tracing.AimPart
+    if type == "ClosestPart" then
+        getgenv().SlamWare.SilentAim.AimPart = tostring(Ordium.functions.returnClosestPart(player.Character))
+        getgenv().SlamWare.Tracing.AimPart = tostring(Ordium.functions.returnClosestPart(player.Character))
+    elseif type == "Closest Point" then
+        Ordium.functions.returnClosestPoint()
+    elseif type == "Default" then
+        getgenv().SlamWare.SilentAim.AimPart = previousSilentAimPart
+        getgenv().SlamWare.Tracing.AimPart = previousTracingPart
+    else
+        getgenv().SlamWare.SilentAim.AimPart = previousSilentAimPart
+        getgenv().SlamWare.Tracing.AimPart = previousTracingPart
+    end
+end
+
+Ordium.functions.aimingCheck = function (player)
+    if getgenv().SlamWare.SilentAim.AimingData.CheckKnocked == true and player and player.Character then
+        if player.Character.BodyEffects["K.O"].Value then
+            return true
+        end
+    end
+    if getgenv().SlamWare.SilentAim.AimingData.CheckGrabbed == true and player and player.Character then
+        if player.Character:FindFirstChild("GRABBING_CONSTRAINT") then
+            return true
+        end
+    end
+    return false
+end
+
+
+local lastRender = 0
+local interpolation = 0.01
+
+RunService.RenderStepped:Connect(function(delta)
+    local valueTypes = 1.375
+    lastRender = lastRender + delta
+    while lastRender > interpolation do
+        lastRender = lastRender - interpolation
+    end
+    if getgenv().SlamWare.Tracing.Enabled and lockedCamTo ~= nil and getgenv().SlamWare.Tracing.TracingOptions.Strength == "Hard" then
+        local Vel =  lockedCamTo.Character[getgenv().SlamWare.Tracing.AimPart].Velocity / (getgenv().SlamWare.Tracing.Prediction * valueTypes)
+        local Main = CFrame.new(Cam.CFrame.p, lockedCamTo.Character[getgenv().SlamWare.Tracing.AimPart].Position + (Vel))
+        Cam.CFrame = Cam.CFrame:Lerp(Main ,getgenv().SlamWare.Tracing.TracingOptions.Smoothness , Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+        Ordium.functions.setAimingType(lockedCamTo, getgenv().SlamWare.Tracing.TracingOptions.AimingType)
+    elseif getgenv().SlamWare.Tracing.Enabled and lockedCamTo ~= nil and getgenv().SlamWare.Tracing.TracingOptions.Strength == "Soft" then
+        local Vel =  lockedCamTo.Character[getgenv().SlamWare.Tracing.AimPart].Velocity / (getgenv().SlamWare.Tracing.Prediction / valueTypes)
+        local Main = CFrame.new(Cam.CFrame.p, lockedCamTo.Character[getgenv().SlamWare.Tracing.AimPart].Position + (Vel))
+        Cam.CFrame = Cam.CFrame:Lerp(Main ,getgenv().SlamWare.Tracing.TracingOptions.Smoothness , Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+        Ordium.functions.setAimingType(lockedCamTo, getgenv().SlamWare.Tracing.TracingOptions.AimingType)
+    else
+
+    end
+end)
+
+task.spawn(function ()
+    while task.wait() do
+        if Targetting then
+            Ordium.functions.setAimingType(Targetting, getgenv().SlamWare.SilentAim.AimingType)
+        end
+        Ordium.functions.update_FOVs()
+    end
+end)
+
+
+local __index
+__index = hookmetamethod(game,"__index", function(Obj, Property)
+    if Obj:IsA("Mouse") and Property == "Hit" then
+        Targetting = Ordium.functions.returnClosestPlayer(getgenv().SlamWare.SilentAim.ChanceData.Chance)
+        if Targetting ~= nil and getgenv().SlamWare.SilentAim.Enabled and not Ordium.functions.aimingCheck(Targetting) then
+            local currentvelocity = Targetting.Character[getgenv().SlamWare.SilentAim.AimPart].Velocity
+            local currentposition = Targetting.Character[getgenv().SlamWare.SilentAim.AimPart].CFrame
+
+            return currentposition + (currentvelocity * getgenv().SlamWare.SilentAim.Prediction)
+        end
+    end
+    return __index(Obj, Property)
+end)
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoid/ui-libraries/main/drawing/void/source.lua"))()
 
@@ -30,7 +258,198 @@ local toggle = section:Toggle{
     Flag = "Toggleeqe 1",
     Default = false,
     Callback  = function(bool)
-     
+     getgenv().SlamWare.SilentAim.Enabled = bool
+    end
+}
+
+
+local box = section:Box{
+    Name = "Prediction",
+    --Default = "hi",
+    Placeholder = "Enter Prediction",
+    Flag = "predictionm21",
+    Callback = function(text)
+       getgenv().SlamWare.SilentAim.Prediction = text
+    end
+}
+
+local dropdown = section:Dropdown{
+ Name = "Aim Part",
+    Default = "HumanoidRootPart",
+    Content = {
+        "Head", "UpperTorso", "HumanoidRootPart", "LowerTorso", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg",  "LeftUpperLeg", "RightLowerLeg", "RightFoot",  "RightUpperLeg"
+       
+    },
+ 
+    Flag = "qeq",
+    Callback = function(option)
+      getgenv().SlamWare.SilentAim.AimPart = option
+    end
+}
+
+
+local dropdown = section:Dropdown{
+ Name = "Aim Type",
+    Default = "Default",
+    Content = {
+        "Default",
+        "ClosestPart"
+       
+    },
+ 
+    Flag = "eeceeeee",
+    Callback = function(option)
+         getgenv().SlamWare.SilentAim.AimingType = option
+    end
+}
+
+local toggle3 = section:Toggle{
+    Name = "Use Hitchance",
+    Flag = "Tseomeshit",
+  
+    Callback  = function(bool)
+      getgenv().SlamWare.SilentAim.ChanceData.UseChance = bool
+    end
+}
+
+local box = section:Box{
+    Name = "Hit Chance",
+    --Default = "hi",
+    Placeholder = "Enter Hitchance",
+    Flag = "hitachacne",
+    Callback = function(text)
+         getgenv().SlamWare.SilentAim.ChanceData.Chance = text
+    end
+}
+local seperator = section:Separator("FOV Settings")
+local toggle3 = section:Toggle{
+    Name = "Show FOV",
+    Flag = "Dontruindontrtrip",
+  
+    Callback  = function(bool)
+       getgenv().SlamWare.SilentAim.FOVData.Visibility = bool
+    end
+}
+
+local toggle3 = section:Toggle{
+    Name = "Filled FOV",
+    Flag = "dontrudnsrtopdtriop",
+  
+    Callback  = function(bool)
+      getgenv().SlamWare.SilentAim.FOVData.Filled = bool
+    end
+}
+
+local box = section:Box{
+    Name = "FOV Size",
+    --Default = "hi",
+    Placeholder = "Enter FOV Size",
+    Flag = "sizeoffov",
+    Callback = function(text)
+        getgenv().SlamWare.SilentAim.FOVData.Radius = text
+    end
+}
+local seperator = section:Separator("Checks")
+local toggle3 = section:Toggle{
+    Name = "Knocked Check",
+    Flag = "Dontruidndontrtriwqdqwp",
+  
+    Callback  = function(bool)
+      getgenv().SlamWare.SilentAim.AimingData.CheckKnocked = bool
+    end
+}
+
+local toggle3 = section:Toggle{
+    Name = "Grabbed Check",
+    Flag = "Donqqqtruindontrtrip",
+  
+    Callback  = function(bool)
+       getgenv().SlamWare.SilentAim.AimingData.CheckGrabbed = bool
+    end
+}
+
+local toggle3 = section:Toggle{
+    Name = "Wall Check",
+    Flag = "Dontrqdqwwqdwqdwqduindontrtrip",
+  
+    Callback  = function(bool)
+       getgenv().SlamWare.SilentAim.AimingData.CheckWalls = bool
+    end
+}
+
+local toggle = cam:Toggle{
+    Name = "Enable",
+    Flag = "Twwwoggle 1",
+
+    Callback  = function(bool)
+        getgenv().SlamWare.Tracing.Enabled = bool
+    end
+}
+
+local keybind = cam:Keybind{
+ Name = "Aiming Keybind",
+    Default = "Q",
+    Blacklist = {Enum.UserInputType.MouseButton1},
+    Flag = "Togguuile 2 Keybind 1",
+    Mode = "nil", -- mode to nil if u dont want it to toggle the toggle
+    Callback = function(key)
+      getgenv().SlamWare.Tracing.Key = key
+    end
+}
+
+
+local dropdown = cam:Dropdown{
+ Name = "AimPart",
+    Default = "HumanoidRootPart",
+    Content = {
+        "Head", "UpperTorso", "HumanoidRootPart", "LowerTorso", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg",  "LeftUpperLeg", "RightLowerLeg", "RightFoot",  "RightUpperLeg"
+       
+    },
+ 
+    Flag = "eeeeqdeee",
+    Callback = function(option)
+         getgenv().SlamWare.Tracing.AimPart = option
+    end
+}
+
+local dropdown = cam:Dropdown{
+ Name = "AimType",
+    Default = "Default",
+    Content = {
+        "Default",
+        "ClosestPart"
+       
+    },
+ 
+    Flag = "eeeeeyyyytu6ee",
+    Callback = function(option)
+        getgenv().SlamWare.Tracing.TracingOptions.AimingType = bool
+    end
+}
+
+local box = cam:Box{
+    Name = "Smoothness",
+    --Default = "hi",
+    Placeholder = "Enter Smoothness",
+    Flag = "Boxwqwed 1",
+    Callback = function(text)
+        getgenv().SlamWare.Tracing.TracingOptions.Smoothness = text
+    end
+}
+
+
+local dropdown = cam:Dropdown{
+ Name = "Strength Type",
+    Default = "Hard",
+    Content = {
+        "Hard",
+        "Soft"
+       
+    },
+ 
+    Flag = "eeeeyeee",
+    Callback = function(option)
+         getgenv().SlamWare.Tracing.TracingOptions.Strength = option
     end
 }
 
@@ -55,6 +474,8 @@ local themelist = themes:Dropdown{
         end
     end
 }
+
+
 
 library:ConfigIgnore("Theme Dropdown")
 
