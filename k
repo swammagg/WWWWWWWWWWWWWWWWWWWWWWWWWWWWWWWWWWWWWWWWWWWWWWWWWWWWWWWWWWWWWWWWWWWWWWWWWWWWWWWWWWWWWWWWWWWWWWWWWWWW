@@ -2,7 +2,7 @@ getgenv().SlamWare = {
     SilentAim = {
         Key = "",
         Enabled = false,
-        Prediction = 0.123,
+        Prediction = 0.119,
         AimingType = "Default", -- ClosestPart, Default
         AimPart = "HumanoidRootPart",
         
@@ -15,7 +15,7 @@ getgenv().SlamWare = {
     },
     Tracing = {
         Key = 'Q',
-        Enabled = false,
+        Enabled = true,
         Prediction = 8,
         AimPart = "HumanoidRootPart",
         TracingOptions = {Strength = "Hard", AimingType = "Default",  Smoothness = 0.11} 
@@ -23,7 +23,7 @@ getgenv().SlamWare = {
     }
 }
 
-local SlamWare = {functions = {}}
+local Ordium = {functions = {}}
 
 local Vector2New, Cam, Mouse, client, find, Draw, Inset, players, RunService, UIS=
     Vector2.new,
@@ -327,7 +327,7 @@ local toggle3 = section:Toggle{
     Flag = "Dontruindontrtrip",
   
     Callback  = function(bool)
-       getgenv().SlamWare.SilentAim.FOVData.Visibility = bool
+      getgenv().SlamWare.SilentAim.FOVData.Visibility = bool
     end
 }
 
@@ -336,7 +336,7 @@ local toggle3 = section:Toggle{
     Flag = "dontrudnsrtopdtriop",
   
     Callback  = function(bool)
-      getgenv().SlamWare.SilentAim.FOVData.Filled = bool
+  getgenv().SlamWare.SilentAim.FOVData.Filled = bool
     end
 }
 
@@ -346,7 +346,7 @@ local box = section:Box{
     Placeholder = "Enter FOV Size",
     Flag = "sizeoffov",
     Callback = function(text)
-        getgenv().SlamWare.SilentAim.FOVData.Radius = text
+       getgenv().SlamWare.SilentAim.FOVData.Radius = text
     end
 }
 local seperator = section:Separator("Checks")
