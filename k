@@ -1,3 +1,560 @@
+rayKey, rayKey2 = "gaythugsimulator", "meowshifrfr$" -- Must be same as the one in the env file
+SecretNum = 112211 -- Must be same as the one in the env file
+URI = "https://keystyemssomething.slammy1.repl.co" -- URL of your webserver / you can use repl.it like i did for this example
+
+local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function base64enc(data)
+   return ((data:gsub('.', function(x)
+       local r, b = '', x:byte()
+       for i = 8, 1, -1 do
+           r = r .. (b % 2 ^ i - b % 2 ^ (i - 1) > 0 and '1' or '0')
+       end
+       return r;
+   end) .. '0000'):gsub('%d%d%d?%d?%d?%d?', function(x)
+       if (#x < 6) then
+           return ''
+       end
+       local c = 0
+       for i = 1, 6 do
+           c = c + (x:sub(i, i) == '1' and 2 ^ (6 - i) or 0)
+       end
+       return b:sub(c + 1, c + 1)
+   end) .. ({'', '==', '='})[#data % 3 + 1])
+end
+
+local URI_Data = game:HttpGet(URI..'?key='..getgenv().key)
+if URI_Data and URI_Data == 'Invalid Key' then
+ print("invalid key idiot negro")
+   return end
+
+local data = string.split(URI_Data, '.')[2]
+local expected_data = tostring((os.date('%H')..':'..os.date('%M')..':'..os.date('%S'))..':'..SecretNum)
+local encData = base64enc(tostring(getgenv().key..rayKey..expected_data..rayKey2))
+local expected = ''
+local DURI = ''
+local dataType = 10
+local encDataType = 0
+local DURIType = 0
+spawn(function()
+   for _,v in pairs(string.split(data, '')) do
+       wait()
+       expected = expected..v
+       DURIType = DURIType + 1
+   end
+end)
+spawn(function()
+   for _,v in pairs(string.split(encData, '')) do
+       wait()
+       DURI = DURI..v
+       encDataType = encDataType + 1
+   end
+end)
+
+if data ~= encData then
+
+end
+repeat wait() until expected == DURI and encDataType >= dataType and DURIType >= dataType do end
+
+if _G.LoadScreen == false then
+wait(0)
+end
+
+if _G.LoadScreen == true then
+   
+        local ExcordsLoader = Instance.new("ScreenGui")
+        local BackFrame = Instance.new("Frame")
+        local UICorner = Instance.new("UICorner")
+        local TopFrame = Instance.new("Frame")
+        local UICorner_2 = Instance.new("UICorner")
+        local UIGradient = Instance.new("UIGradient")
+        local TextLabel = Instance.new("TextLabel")
+        local UIGradient_2 = Instance.new("UIGradient")
+        local LoadingText = Instance.new("TextLabel")
+        local LoadingFrame = Instance.new("Frame")
+        local UICorner_3 = Instance.new("UICorner")
+        local UIGradient_3 = Instance.new("UIGradient")
+        local Loading = Instance.new("Frame")
+        local UICorner_4 = Instance.new("UICorner")
+        local UIGradient_4 = Instance.new("UIGradient")
+        local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+        
+        Slamwareloader.Name = "Slamwareloader"
+        Slamwareloader.Parent = game.CoreGui
+        Slamwareloader.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        
+        BackFrame.Name = "BackFrame"
+        BackFrame.Parent = Slamwareloader
+        BackFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+        BackFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        BackFrame.Position = UDim2.new(0.493000001, 0, 1.07000005, 0)
+        BackFrame.Size = UDim2.new(0, 361, 0, 101)
+        
+        UICorner.CornerRadius = UDim.new(0, 12)
+        UICorner.Parent = BackFrame
+        
+        TopFrame.Name = "TopFrame"
+        TopFrame.Parent = BackFrame
+        TopFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TopFrame.Size = UDim2.new(0, 361, 0, 29)
+        
+        UICorner_2.CornerRadius = UDim.new(0, 12)
+        UICorner_2.Parent = TopFrame
+        
+        UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(214,161,195)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(85, 0, 182))}
+        UIGradient.Rotation = 90
+        UIGradient.Parent = TopFrame
+        
+        TextLabel.Parent = TopFrame
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BackgroundTransparency = 1.000
+        TextLabel.Position = UDim2.new(0.387811601, 0, -0.0344827585, 0)
+        TextLabel.Size = UDim2.new(0, 87, 0, 29)
+        TextLabel.Font = Enum.Font.Code
+        TextLabel.Text = "Excords.cc"
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.TextScaled = true
+        TextLabel.TextSize = 14.000
+        TextLabel.TextWrapped = true
+        
+        UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(76, 0, 182)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(37, 0, 81))}
+        UIGradient_2.Offset = Vector2.new(0.5, 0)
+        UIGradient_2.Rotation = 90
+        UIGradient_2.Parent = BackFrame
+        
+        LoadingText.Name = "LoadingText"
+        LoadingText.Parent = BackFrame
+        LoadingText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        LoadingText.BackgroundTransparency = 1.000
+        LoadingText.Position = UDim2.new(0.0775623247, 0, 0.286810249, 0)
+        LoadingText.Size = UDim2.new(0, 312, 0, 25)
+        LoadingText.Font = Enum.Font.Code
+        LoadingText.Text = "welcome"
+        LoadingText.TextColor3 = Color3.fromRGB(163, 163, 163)
+        LoadingText.TextScaled = true
+        LoadingText.TextSize = 14.000
+        LoadingText.TextWrapped = true
+        
+        LoadingFrame.Name = "LoadingFrame"
+        LoadingFrame.Parent = BackFrame
+        LoadingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        LoadingFrame.Position = UDim2.new(0.0526315793, 0, 0.605504572, 0)
+        LoadingFrame.Size = UDim2.new(0, 321, 0, 26)
+        
+        UICorner_3.CornerRadius = UDim.new(0, 12)
+        UICorner_3.Parent = LoadingFrame
+        
+        UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(106, 106, 106)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(61, 61, 61))}
+        UIGradient_3.Rotation = 90
+        UIGradient_3.Parent = LoadingFrame
+        
+        Loading.Name = "Loading"
+        Loading.Parent = LoadingFrame
+        Loading.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Loading.Position = UDim2.new(0, 0, -0.00988065265, 0)
+        Loading.Size = UDim2.new(0.0280373823, 0, 1.00988066, 0)
+        
+        UICorner_4.CornerRadius = UDim.new(0, 12)
+        UICorner_4.Parent = Loading
+        
+        UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(92, 0, 220)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(51, 0, 115))}
+        UIGradient_4.Rotation = 90
+        UIGradient_4.Parent = Loading
+        
+        UIAspectRatioConstraint.Parent = BackFrame
+        UIAspectRatioConstraint.AspectRatio = 3.574
+        
+        
+        local function TFOQWM_fake_script()
+            local script = Instance.new('LocalScript', Loading)
+        
+            local LoadingTxt = script.Parent.Parent
+            local goingDownxd = script.Parent.Parent.Parent.Parent.BackFrame
+                local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+            wait(2)
+            script.Parent:TweenSize(UDim2.new(0, 88,0, 26))
+            script.Parent.Parent.Parent.LoadingText.Text = "setting up"
+           
+                local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+            wait(1)
+        
+        
+            script.Parent:TweenSize(UDim2.new(0, 165,0, 26))
+            script.Parent.Parent.Parent.LoadingText.Text = "Injecting AntiBan"
+            assert(getrawmetatable)
+            grm = getrawmetatable(game)
+            setreadonly(grm, false)
+            old = grm.__namecall
+            grm.__namecall = newcclosure(function(self, ...)
+                local args = {...}
+                if tostring(args[1]) == "TeleportDetect" then
+                    return
+                elseif tostring(args[1]) == "CHECKER_1" then
+                    return
+                elseif tostring(args[1]) == "CHECKER" then
+                    return
+                elseif tostring(args[1]) == "GUI_CHECK" then
+                    return
+                elseif tostring(args[1]) == "OneMoreTime" then
+                    return
+                elseif tostring(args[1]) == "checkingSPEED" then
+                    return
+                elseif tostring(args[1]) == "BANREMOTE" then
+                    return
+                elseif tostring(args[1]) == "PERMAIDBAN" then
+                    return
+                elseif tostring(args[1]) == "KICKREMOTE" then
+                    return
+                elseif tostring(args[1]) == "BR_KICKPC" then
+                    return
+                elseif tostring(args[1]) == "BR_KICKMOBILE" then
+                    return
+                end
+                return old(self, ...)
+            end)
+          
+            local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        
+            wait(1.2)
+            script.Parent:TweenSize(UDim2.new(0, 232,0, 26))
+            script.Parent.Parent.Parent.LoadingText.Text = "Checking Key"
+          
+            local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        
+            wait(1.5)
+            script.Parent:TweenSize(UDim2.new(1,0,1,0))
+            script.Parent.Parent.Parent.LoadingText.Text = "executing"
+          
+                local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://3320590485"
+        sound.Parent = game:GetService("SoundService")
+        sound:Play()
+            wait(2)
+            goingDownxd:TweenPosition(UDim2.new(0.493, 0,1.07, 0))
+            wait(1)
+            script.Parent.Parent.Parent.Parent.Parent.ExcordsLoader:Destroy()
+        end
+        coroutine.wrap(TFOQWM_fake_script)()
+        local function DDIVBK_fake_script()
+            local script = Instance.new('LocalScript', BackFrame)
+        
+            script.Parent:TweenPosition(UDim2.new(0.5, 0,0.499, 0))
+        end
+        coroutine.wrap(DDIVBK_fake_script)()
+        wait(7.5)
+end
+
 getgenv().SlamWare = {
     SilentAim = {
         Key = "",
